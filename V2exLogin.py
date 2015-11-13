@@ -11,8 +11,8 @@ class v2exLogin:
     login_url = None
 
     def __init__(self):
-        self.username = 'sameland'
-        self.password = '34333425'
+        self.username = 'XXX'
+        self.password = 'XXX'
         self.host = "https://www.v2ex.com"
         self.login_url = self.host + "/signin"
         self.cookie = cookielib.CookieJar()
