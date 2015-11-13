@@ -1,4 +1,4 @@
-import urllib,urllib2,cookielib,re,zlib,pdb
+import urllib,urllib2,cookielib,re
 
 class v2exLogin:
     cookie_handler = None
