@@ -6,7 +6,7 @@ import time,urllib2,re,cookielib
 class ComicsSearch:
     host = "http://www.1kkk.com"
     newest_page = "http://www.1kkk.com/manhua-new"
-    name_re = r'<br />([\x21-\xff]+)</a><span class="lj_h1">'
+    name_re = r'<br />([\x21-\xff]+[\x20,\x2f]*[\x21-\xff]+)</a><span class="lj_h1">'
     time_re = r'</span><br />([\x80-\xff,\s,a-z,0-9,A-Z,-]+)<span class="flowtag">'
     url_re = r'<span class="lj_h1"><a href="([a-z,0-9,A-Z,//,-]+)">'
     comics_list = None
@@ -36,6 +36,9 @@ class ComicsSearch:
         content = content.read()
         name_pattern = re.compile(self.name_re)
         self.name_result = name_pattern.findall(content)
+        print self.name_result.__len__()
+        for item in self.name_result:
+            print item
         time_pattern = re.compile(self.time_re)
         self.time_result = time_pattern.findall(content)
         url_pattern = re.compile(self.url_re)
