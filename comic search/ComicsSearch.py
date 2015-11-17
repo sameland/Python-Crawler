@@ -39,7 +39,6 @@ class ComicsSearch:
         content = content.read()
         name_pattern = re.compile(self.name_re)
         self.name_result = name_pattern.findall(content)
-        print self.name_result.__len__()
         time_pattern = re.compile(self.time_re)
         self.time_result = time_pattern.findall(content)
         url_pattern = re.compile(self.url_re)
@@ -50,7 +49,6 @@ class ComicsSearch:
             for idx, val in enumerate(self.time_result):
                 tmp_name = self.name_result[idx]
                 if val.__contains__(self.curr_time) or val.__contains__(self.yes_time):
-                    print self.name_result[idx]
                     if tmp_name in self.comics_list:
                         print self.host + self.url_result[idx]
                     self.start_check = True
